@@ -1,6 +1,6 @@
-[submodule "plugins/amavisspamsettings"]
-	path = plugins/amavisspamsettings
-	url = git@github.com:adfinis-sygroup/roundcube-plugin-amavisspamsettings.git
 [submodule "plugins/mailforward"]
 	path = plugins/mailforward
 	url = git@github.com:adfinis-sygroup/roundcube-plugin-mailforward.git
+[submodule "plugins/amavisspamsettings"]
+	path = plugins/amavisspamsettings
+	url = git@github.com:adfinis-sygroup/roundcube-plugin-amavisspamsettings.git
