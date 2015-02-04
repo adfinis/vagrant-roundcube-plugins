@@ -93,7 +93,7 @@ class mailforward extends rcube_plugin {
 			//$rcmail->output->command('display_message', $this->gettext('successfullysaved'), 'confirmation');
 			$rcmail->output->command(
 				'display_message',
-				"FEHLER: Konnte die Daten nicht aus dem LDAP-Server laden!",
+				'ERROR: Could not load data from LDAP-Server!',
 				'confirmation'
 			);
 		}
