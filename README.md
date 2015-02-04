@@ -1,0 +1,8 @@
+Roundcube Plugins
+=================
+
+mailforward
+-----------
+
+spamsettings
+------------
