@@ -545,7 +545,8 @@ class spamsettings extends rcube_plugin {
 					$i++;
 				}
 				$returnData[$attributeName] = $attributeData;
-			} else {
+			}
+			else {
 				$returnData[$attributeName] = $resultData[0][strtolower($attributeName)][0];
 			}
 
@@ -575,7 +576,8 @@ class spamsettings extends rcube_plugin {
 
 		if ($_POST['inputAmavisSpamModifiesSubj']) {
 			$postAmavisSpamModifiesSubj = 1;
-		} else {
+		}
+		else {
 			$postAmavisSpamModifiesSubj = 0;
 		}
 
@@ -616,7 +618,8 @@ class spamsettings extends rcube_plugin {
 			);
 
 			$hasError = true;
-		} elseif ($postAmavisSpamModifiesSubj == 1
+		}
+		else if ($postAmavisSpamModifiesSubj == 1
 				&& !preg_match('/[A-Za-z0-9\.#\-+@=\$]/i', $postAmavisSpamSubjectTag2) === 0) {
 			$rcmail->output->command(
 				'display_message',
@@ -733,7 +736,8 @@ class spamsettings extends rcube_plugin {
 		$updateEntry['amavisSpamKillLevel'] = array($amavisSpamKillLevel);
 		if ($amavisSpamModifiesSubj == 1) {
 			$updateEntry['amavisSpamModifiesSubj'] = 'TRUE';
-		} else {
+		}
+		else {
 			$updateEntry['amavisSpamModifiesSubj'] = 'FALSE';
 		}
 		$updateEntry['amavisSpamQuarantineTo'] = array($amavisSpamQuarantineTo);
@@ -741,20 +745,23 @@ class spamsettings extends rcube_plugin {
 
 		if (count($amavisBlacklistSender) > 0) {
 			$updateEntry['amavisBlacklistSender'] = $amavisBlacklistSender;
-		} else {
+		}
+		else {
 			$updateEntry['amavisBlacklistSender'] = array();
 		}
 
 		if (count($amavisWhitelistSender) > 0) {
 			$updateEntry['amavisWhitelistSender'] = $amavisWhitelistSender;
-		} else {
+		}
+		else {
 			$updateEntry['amavisWhitelistSender'] = array();
 		}
 
 		$updateResult = ldap_modify($ldapConnection, $userDN, $updateEntry);
 		if ($updateResult) {
 			return "SUCCESS:" . $this->gettext('updatesuccess');
-		} else {
+		}
+		else {
 			return "FAILED:" . $this->gettext('updatefailed');
 		}
 	}

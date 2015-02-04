@@ -136,10 +136,12 @@ class mailforward extends rcube_plugin {
 
 		if ($forwardSettings["mailForwardAddress"]) {
 			$mailForwardAddress = $forwardSettings["mailForwardAddress"];
-		} else if ($forwardSettings["mailForwardConfiguredAddress"]) {
+		}
+		else if ($forwardSettings["mailForwardConfiguredAddress"]) {
 			$mailForwardAddress = $forwardSettings["mailForwardConfiguredAddress"];
 			$forwardAddressDisabled = true;
-		} else {
+		}
+		else {
 			$forwardAddressDisabled = true;
 		}
 
@@ -310,7 +312,8 @@ class mailforward extends rcube_plugin {
 			}
 			ldap_close($ldapConnection);
 			return $returnData;
-		} else {
+		}
+		else {
 			error_log("Mailforward-Plugin: Error while retreiving"
 				. " data for: " . $_SESSION['username']
 				. " The returned number of user records, based"
@@ -374,7 +377,8 @@ class mailforward extends rcube_plugin {
 						. $this->gettext('updatefailed2'),
 					'error'
 				);
-			} else {
+			}
+			else {
 				$rcmail->output->command(
 					'display_message',
 					$this->gettext('updatesuccess'),
@@ -478,20 +482,23 @@ class mailforward extends rcube_plugin {
 		if ($enableMailForwarding == true) {
 			$updateEntry['mailForwardAddress']           = array($mailForwardAddress);
 			$updateEntry['mailForwardConfiguredAddress'] = array($mailForwardAddress);
-		} else {
+		}
+		else {
 			$updateEntry['mailForwardAddress'] = array();
 		}
 
 		if ($keepLocalCopy == 1) {
 			$updateEntry['mailForwardKeepLocalCopy'] = 'TRUE';
-		} else {
+		}
+		else {
 			$updateEntry['mailForwardKeepLocalCopy'] = 'FALSE';
 		}
 
 		$updateResult = ldap_modify($ldapConnection, $userDN, $updateEntry);
 		if ($updateResult) {
 			return "SUCCESS:" . $this->gettext('updatesuccess');
-		} else {
+		}
+		else {
 			return "FAILED:" . $this->gettext('updatefailed');
 		}
 	}
