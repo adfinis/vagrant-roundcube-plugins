@@ -72,7 +72,7 @@ class mailforward extends rcube_plugin {
 	function mailforwardInit()  {
 		$this->register_handler('plugin.body', array($this, 'mailforwardForm'));
 		$rcmail = rcmail::get_instance();
-		$rcmail->output->set_pagetitle("Mailweiterleitung einrichten");
+		$rcmail->output->set_pagetitle($this->gettext('mailforwardtitle'));
 		$rcmail->output->send('plugin');
 	}
 
