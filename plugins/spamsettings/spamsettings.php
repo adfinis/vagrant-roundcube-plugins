@@ -73,7 +73,7 @@ class spamsettings extends rcube_plugin {
 	function spamsettingsInit()  {
 		$this->register_handler('plugin.body', array($this, 'spamsettingsForm'));
 		$rcmail = rcmail::get_instance();
-		$rcmail->output->set_pagetitle("Spam-Einstellungen ändern");
+		$rcmail->output->set_pagetitle($this->gettext('spamsettingstitle'));
 		$rcmail->output->send('plugin');
 	}
 
