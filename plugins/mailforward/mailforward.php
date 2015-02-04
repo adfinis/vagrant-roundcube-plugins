@@ -393,14 +393,14 @@ class mailforward extends rcube_plugin {
 	/**
 	 * Saves the given and checked mailforward settings to the user-record in the LDAP-Server
 	 *
-	 * Parameter:	1: Boolean should forwarding be enabled (true) or no (false)
-	 2: String: The mail forward address
-	 *			3: Boolean: True if the server should keep a local copy (ignored if parameter 1 is false)
+	 * Parameter: 1: Boolean should forwarding be enabled (true) or no (false)
+	 *            2: String: The mail forward address
+	 *            3: Boolean: True if the server should keep a local copy (ignored if parameter 1 is false)
 	 *
 	 *
-	 * Returns: 	String with save state:
-	 *         		If the string begins with: "SUCCESS:" the saving process was successful
-	 *          	if the string begins with  "FAILED:" the savigng process was unsuccessful and the following string (after :) is the error message for the user
+	 * Returns: String with save state:
+	 *          If the string begins with: "SUCCESS:" the saving process was successful
+	 *          if the string begins with  "FAILED:" the savigng process was unsuccessful and the following string (after :) is the error message for the user
 	 */
 	private function saveUserData(
 		$enableMailForwarding,
