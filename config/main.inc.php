@@ -411,7 +411,7 @@ $rcmail_config['no_save_sent_messages'] = false;
 // ----------------------------------
 
 // List of active plugins (in plugins/ directory)
-$rcmail_config['plugins'] = array( 'mailforward', 'spamsettings' );
+$rcmail_config['plugins'] = array( 'mailforward', 'amavisspamsettings' );
 
 // ----------------------------------
 // USER INTERFACE
