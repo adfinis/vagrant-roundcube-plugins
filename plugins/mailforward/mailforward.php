@@ -46,7 +46,7 @@ class mailforward extends rcube_plugin {
 
 
 	/**
-	 * Official plugin init function 
+	 * Official plugin init function
 	 *
 	 */
 	function init()  {
@@ -68,7 +68,7 @@ class mailforward extends rcube_plugin {
 	/**
 	 * Internal init function for the plugin
 	 *
-	 */ 
+	 */
 	function mailforwardInit()  {
 		$this->register_handler('plugin.body', array($this, 'mailforwardForm'));
 		$rcmail = rcmail::get_instance();
@@ -97,7 +97,7 @@ class mailforward extends rcube_plugin {
 			//$rcmail->output->command('display_message', $this->gettext('successfullysaved'), 'confirmation');
 			$rcmail->output->command(
 				'display_message',
-				"FEHLER: Konnte die Daten nicht aus dem LDAP-Server laden!", 
+				"FEHLER: Konnte die Daten nicht aus dem LDAP-Server laden!",
 				'confirmation'
 			);
 		}
@@ -172,7 +172,7 @@ class mailforward extends rcube_plugin {
 		// -----Checkbox to to ask if the mail should be forwarded  ----------
 		$mailForwardKeepLocalCopy = 'FALSE';
 
-		if ($forwardSettings["mailForwardKeepLocalCopy"] 
+		if ($forwardSettings["mailForwardKeepLocalCopy"]
 			&& $forwardSettings["mailForwardKeepLocalCopy"] == 'TRUE') {
 			$mailForwardKeepLocalCopy = 'TRUE';
 		}
@@ -190,7 +190,7 @@ class mailforward extends rcube_plugin {
 		);
 		$table->add(
 			array('class' => 'mailforward-rightColumn'),
-			$checkKeepLocalCopy->show($mailForwardKeepLocalCopy 
+			$checkKeepLocalCopy->show($mailForwardKeepLocalCopy
 		));
 
 		// -----Save Button --------------------------------------
@@ -209,7 +209,7 @@ class mailforward extends rcube_plugin {
 		$table->add(
 			array(
 				'class' => 'mailforward-leftColumn'),
-				html::label( array ('style' => 'font-size: 20px;'), 
+				html::label( array ('style' => 'font-size: 20px;'),
 				"&nbsp;"
 			)
 		);
@@ -227,7 +227,7 @@ class mailforward extends rcube_plugin {
 			array(
 				'id' => 'prefs-title',
 				'class' => 'boxtitle'
-			), 
+			),
 			$this->gettext('mailforwardtitle')) . "<br />";
 		$out = $out . $table->show() ;
 
@@ -241,17 +241,17 @@ class mailforward extends rcube_plugin {
 				'name'   => 'mailforward-form',
 				'method' => 'post',
 				'action' => './?_task=settings&_action=plugin.mailforward-save',
-			), 
+			),
 			$out
 		);
 	}
 
 	/**
-	 * Loads the current Users mailforward from the LDAP-Server, or, when a 
+	 * Loads the current Users mailforward from the LDAP-Server, or, when a
 	 * previous saveing attempt was failed, the last values from the post
 	 *
 	 *
-	 * Returns: Array with the attributeName as key and its values as value 
+	 * Returns: Array with the attributeName as key and its values as value
 	 *          or false if something went wrong
 	 */
 	private function loadUserData() {
@@ -283,7 +283,7 @@ class mailforward extends rcube_plugin {
 
 		if (!$ldapConnection) {
 			error_log("Mailforward-Plugin: Error while connecting to"
-				. " the LDAP-Server, the error was: " 
+				. " the LDAP-Server, the error was: "
 				. ldap_error($ldapConnection));
 			return false;
 		}
@@ -292,7 +292,7 @@ class mailforward extends rcube_plugin {
 
 		if (!$ldapBind) {
 			error_log("Mailforward-Plugin: Error while binding"
-				. " to the LDAP-Server, the error was: " 
+				. " to the LDAP-Server, the error was: "
 				. ldap_error($ldapConnection));
 			return false;
 		}
@@ -311,16 +311,16 @@ class mailforward extends rcube_plugin {
 
 		if ($resultData["count"] > 0) {
 			foreach ($fetchAttributes as $attributeName) {
-				$returnData[$attributeName] = 
+				$returnData[$attributeName] =
 					$resultData[0][strtolower($attributeName)][0];
 			}
 			ldap_close($ldapConnection);
 			return $returnData;
 		} else {
 			error_log("Mailforward-Plugin: Error while retreiving"
-				. " data for: " . $_SESSION['username'] 
+				. " data for: " . $_SESSION['username']
 				. " The returned number of user records, based"
-				. " on the search filter: " . $searchFilter 
+				. " on the search filter: " . $searchFilter
 				. " was 0: User not found!");
 			return false;
 		}
@@ -344,7 +344,7 @@ class mailforward extends rcube_plugin {
 		$postMailForwardAddress = ltrim($_POST['inputMailForwardAddress']);
 		$postMailForwardAddress = rtrim($postMailForwardAddress);
 
-		if (!empty($postMailForwardAddress) && 
+		if (!empty($postMailForwardAddress) &&
 				!filter_var($postMailForwardAddress, FILTER_VALIDATE_EMAIL)) {
 			$rcmail->output->command(
 				'display_message',
@@ -385,7 +385,7 @@ class mailforward extends rcube_plugin {
 			} else {
 				$rcmail->output->command(
 					'display_message',
-					$this->gettext('updatesuccess'), 
+					$this->gettext('updatesuccess'),
 					'confirmation'
 				);
 			}
@@ -404,7 +404,7 @@ class mailforward extends rcube_plugin {
 	 *			3: Boolean: True if the server should keep a local copy (ignored if parameter 1 is false)
 	 *
 	 *
-	 * Returns: 	String with save state: 
+	 * Returns: 	String with save state:
 	 *         		If the string begins with: "SUCCESS:" the saving process was successful
 	 *          	if the string begins with  "FAILED:" the savigng process was unsuccessful and the following string (after :) is the error message for the user
 	 */
@@ -509,7 +509,7 @@ class mailforward extends rcube_plugin {
 
 	/**
 	 * Checks if the given string starts with the searchstring content
-	 * 
+	 *
 	 * Parameter:   1: String: The text to search in
 	 *              2: String: The searchstring within the first given argument
 	 *
