@@ -44,7 +44,6 @@ class mailforward extends rcube_plugin {
 	public $noajax               = true;
 	private $submitHasBeenFailed = false;
 
-
 	/**
 	 * Official plugin init function
 	 *
@@ -62,8 +61,6 @@ class mailforward extends rcube_plugin {
 		$this->include_script('mailforward.js');
 		$this->include_stylesheet("mailforward.css");
 	}
-
-
 
 	/**
 	 * Internal init function for the plugin
@@ -92,7 +89,6 @@ class mailforward extends rcube_plugin {
 			array('cols' => 2, 'class' => 'scroller mailforward-maintable')
 		);
 
-
 		if ($forwardSettings == false) {
 			//$rcmail->output->command('display_message', $this->gettext('successfullysaved'), 'confirmation');
 			$rcmail->output->command(
@@ -101,7 +97,6 @@ class mailforward extends rcube_plugin {
 				'confirmation'
 			);
 		}
-
 
 		// ---------------------------------------------------------------------
 		// -------- Formgeneration: Fields Start -------------------------------
@@ -134,7 +129,6 @@ class mailforward extends rcube_plugin {
 			array('class' => 'mailforward-rightColumn'),
 			$inputMailForwardEnabled->show( $enableMailForward )
 		);
-
 
 		// -----Input-Field for setting the forward address  -----------------
 		$mailForwardAddress     = "";
@@ -326,7 +320,6 @@ class mailforward extends rcube_plugin {
 		}
 	}
 
-
 	/**
 	 * Handels and revalidates the Post-Data from the Form to the LDAP mailforward in the user record
 	 */
@@ -366,7 +359,6 @@ class mailforward extends rcube_plugin {
 			$postKeepLocalCopy = 0;
 		}
 
-
 		if ($this->submitHasBeenFailed != true) {
 			$result = $this->saveUserData(
 				$enableForwarding,
@@ -393,8 +385,6 @@ class mailforward extends rcube_plugin {
 		rcmail_overwrite_action('plugin.mailforward');
 		$rcmail->output->send('plugin');
 	}
-
-
 
 	/**
 	 * Saves the given and checked mailforward settings to the user-record in the LDAP-Server
@@ -506,7 +496,6 @@ class mailforward extends rcube_plugin {
 		}
 	}
 
-
 	/**
 	 * Checks if the given string starts with the searchstring content
 	 *
@@ -518,5 +507,4 @@ class mailforward extends rcube_plugin {
 	private function startsWith($text, $searchString) {
 		return !strncmp($text, $searchString, strlen($searchString));
 	}
-
 }

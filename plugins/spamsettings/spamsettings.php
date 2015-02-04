@@ -32,7 +32,6 @@
 
 define('LDAP_OPT_DIAGNOSTIC_MESSAGE', 0x0032);
 
-
 /**
  * Change Sasag Spam Settings in Roundcube
  *
@@ -45,7 +44,6 @@ class spamsettings extends rcube_plugin {
 	public $noframe = true;
 	public $noajax  = true;
 	private $submitHasBeenFailed = false;
-
 
 	/**
 	 * Official plugin init function
@@ -67,7 +65,6 @@ class spamsettings extends rcube_plugin {
 		$this->include_script('spamsettings.js');
 		$this->include_stylesheet("spamsettings.css");
 	}
-
 
 	/**
 	 * Internal init function for the plugin
@@ -128,7 +125,6 @@ class spamsettings extends rcube_plugin {
 				'confirmation'
 			);
 		}
-
 
 		// -----------------------------------------------------------------------
 		// -------- Formgeneration: Fields Start ---------------------------------
@@ -198,7 +194,6 @@ class spamsettings extends rcube_plugin {
 			html::label($field_id, "&nbsp;")
 		);
 
-
 		$spamLevelNames = $config->get('spamlevelnames');
 		$spamLevelTexts = $config->get('spamleveltexts');
 		$spamTagLevels = $config->get('spamtaglevels');
@@ -251,7 +246,6 @@ class spamsettings extends rcube_plugin {
 		$spamSettingsOut = $spamSettingsOut . "</fieldset>";
 
 		$table->add(array('colspan' => 2), $spamSettingsOut);
-
 
 		// ------Select-Box with add/remove button to add or remove blacklisted senders -------------------------
 
@@ -391,7 +385,6 @@ class spamsettings extends rcube_plugin {
 			$inputWhitelistSender->show()
 		);
 
-
 		$whiteListOut = "<fieldset class=\"fieldSet\"><legend>" .
 			$this->gettext('amavisWhitelistSender') . "</legend><br />";
 		$whiteListOut = $whiteListOut . $whitelistTable->show();
@@ -467,7 +460,6 @@ class spamsettings extends rcube_plugin {
 			'action' => './?_task=settings&_action=plugin.spamsettings-save',
 		), $out);
 	}
-
 
 	/**
 	 * Loads the current Users Spamsettings from the LDAP-Server, or, when a previous saveing attempt was failed, the last values from the post
@@ -562,7 +554,6 @@ class spamsettings extends rcube_plugin {
 		return $returnData;
 	}
 
-
 	/**
 	 * Handels and revalidates the Post-Data from the Form to the LDAP Spamsettings in the user record
 	 */
@@ -617,7 +608,6 @@ class spamsettings extends rcube_plugin {
 			$postAmavisSpamQuarantineTo = $quarantaineMailAddress;
 		}
 
-
 		if ($postAmavisSpamModifiesSubj == 1 && $postAmavisSpamSubjectTag2 == '') {
 			$rcmail->output->command(
 				'display_message',
@@ -668,8 +658,6 @@ class spamsettings extends rcube_plugin {
 		rcmail_overwrite_action('plugin.spamsettings');
 		$rcmail->output->send('plugin');
 	}
-
-
 
 	/**
 	 * Saves the given and checked Spamsettings to the user record in the LDAP-Server
@@ -771,7 +759,6 @@ class spamsettings extends rcube_plugin {
 		}
 	}
 
-
 	/**
 	 * Checks if the given string starts with the searchstring content
 	 *
@@ -783,7 +770,4 @@ class spamsettings extends rcube_plugin {
 	private function startsWith($text, $searchString) {
 		return !strncmp($text, $searchString, strlen($searchString));
 	}
-
-
-
 }
