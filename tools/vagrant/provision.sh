@@ -29,7 +29,7 @@ function install_apache2() {
 }
 
 function install_php5() {
-  apt-get install -y php5-cli php5-mcrypt libapache2-mod-php5
+  apt-get install -y php5-cli php5-mcrypt php5-ldap libapache2-mod-php5
 
   ln -s /etc/php5/mods-available/mcrypt.ini /etc/php5/apache2/conf.d/
 }
