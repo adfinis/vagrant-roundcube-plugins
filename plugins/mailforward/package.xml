@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" packagerversion="1.9.0" version="2.0" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+    http://pear.php.net/dtd/tasks-1.0.xsd
+    http://pear.php.net/dtd/package-2.0
+    http://pear.php.net/dtd/package-2.0.xsd">
+	<name>mailforward</name>
+	<channel>pear.roundcube.net</channel>
+	<summary>Sasag LDAP Mail forward settings</summary>
+	<description>This plugin allows the user to change its mail forwarding setting in the ldap record</description>
+	<lead>
+		<name>Roland Käser</name>
+		<user>rolandk</user>
+		<email>roland.kaeser@adfinis-sygroup.ch</email>
+		<active>yes</active>
+	</lead>
+	<date>2013-07-12</date>
+	<version>
+		<release>1.0</release>
+		<api>2.0</api>
+	</version>
+	<stability>
+		<release>stable</release>
+		<api>stable</api>
+	</stability>
+	<license uri="http://www.gnu.org/licenses/gpl-2.0.html">GNU GPLv2</license>
+	<notes>
+- Initial creation
+        </notes>
+	<contents>
+		<dir baseinstalldir="/" name="/">
+			<file name="mailforward.php" role="php"></file>
+			<file name="mailforward.js" role="data"></file>
+			<file name="mailforward.css" role="data"></file>
+			<file name="localization/de_CH.inc" role="data"></file>
+			<file name="localization/de_DE.inc" role="data"></file>
+			<file name="localization/en_US.inc" role="data"></file>
+			<file name="localization/fr_FR.inc" role="data"></file>
+			<file name="localization/it_IT.inc" role="data"></file>
+	                <file name="config.inc.php" role="data"></file>
+		</dir>
+	</contents>
+	<dependencies>
+		<required>
+			<php>
+			    <min>5.2.1</min>
+			</php>
+			<pearinstaller>
+			    <min>1.7.0</min>
+			</pearinstaller>
+		</required>
+	</dependencies>
+	<phprelease/>
+	<changelog>
+	    <release>
+	        <date>2013-07-09</date>
+	        <time>12:00:00</time>
+	        <version>
+		        <release>1.0</release>
+		        <api>2.0</api>
+	        </version>
+	        <stability>
+		        <release>stable</release>
+		        <api>stable</api>
+	        </stability>
+	        <license uri="http://www.gnu.org/licenses/gpl-2.0.html">GNU GPLv2</license>
+	        <notes>
+- Initial Creation
+                </notes>
+	    </release>
+    </changelog>
+</package>
